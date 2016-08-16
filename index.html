@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>刘晨的简历</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="title">
+      <h1>Markdown编辑器</h1>
+    </div>
+    <div id="editor">
+      <div class="col-xs-12 col-md-6" v-bind:class="{'hide': !isfull}">
+        <textarea class="form-control" v-model="input" debounce="300"></textarea>
+      </div>
+      <div class="col-xs-12  content" v-bind:class="{'col-md-6': isfull}">
+        <div class="panel panel-default">
+          <div class="markdown-body" v-bind:class="{'max-hei': isfull}" v-html="input | marked"></div>
+        </div>
+        <button class="btn btn-default pull-7"  v-if="isfull" v-on:click="full">
+          <span class="glyphicon glyphicon-resize-full"></span>
+        </button>
+        <button class="btn btn-default pull-7"  v-if="!isfull" v-on:click="small">
+          <span class="glyphicon glyphicon-resize-small"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
